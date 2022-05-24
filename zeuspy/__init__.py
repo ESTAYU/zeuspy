@@ -1,26 +1,29 @@
 #ZEUS- I START FROM THRE, WHERE EVERYONE GIVE-UP
 
-__version__ = "2.0.24"
-__license__ = "GNU Lesser General Public License v3.0 (LGPL-3.0)"
-__copyright__ = "Copyright (C) 2017-present Dan <https://github.com/delivrance>"
+from .advanced import Advanced
+from .auth import Auth
+from .bots import Bots
+from .chats import Chats
+from .contacts import Contacts
+from .decorators import Decorators
+from .invite_links import InviteLinks
+from .messages import Messages
+from .password import Password
+from .users import Users
+from .utilities import Utilities
 
-from concurrent.futures.thread import ThreadPoolExecutor
 
-
-class StopTransmission(Exception):
+class Methods(
+    Advanced,
+    Auth,
+    Bots,
+    Contacts,
+    Password,
+    Chats,
+    Users,
+    Messages,
+    Decorators,
+    Utilities,
+    InviteLinks,
+):
     pass
-
-
-class StopPropagation(StopAsyncIteration):
-    pass
-
-
-class ContinuePropagation(StopAsyncIteration):
-    pass
-
-
-from . import raw, types, filters, handlers, emoji, enums
-from .client import Client
-from .sync import idle, compose
-
-crypto_executor = ThreadPoolExecutor(1, thread_name_prefix="CryptoWorker")
