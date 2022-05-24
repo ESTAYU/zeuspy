@@ -1,0 +1,38 @@
+#ZEUS- I START FROM THRE, WHERE EVERYONE GIVE-UP
+import zeuspy
+from zeuspy import raw
+from zeuspy import types
+
+
+class CreateChannel:
+    async def create_channel(
+        self: "zeuspy.Client",
+        title: str,
+        description: str = ""
+    ) -> "types.Chat":
+        """Create a new broadcast channel.
+
+        Parameters:
+            title (``str``):
+                The channel title.
+
+            description (``str``, *optional*):
+                The channel description.
+
+        Returns:
+            :obj:`~zeuspy.types.Chat`: On success, a chat object is returned.
+
+        Example:
+            .. code-block:: python
+
+                await app.create_channel("Channel Title", "Channel Description")
+        """
+        r = await self.invoke(
+            raw.functions.channels.CreateChannel(
+                title=title,
+                about=description,
+                broadcast=True
+            )
+        )
+
+        return types.Chat._parse_chat(self, r.chats[0])
