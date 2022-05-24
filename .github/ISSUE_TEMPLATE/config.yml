@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Ask zeuspy related questions
+    url: https://stackoverflow.com/questions/tagged/zeuspy
+    about: This place is only for reporting issues about zeuspy. You can ask questions at StackOverflow.
+  - name: Join the Telegram channel
+    url: https://t.me/zeuspy
+    about: Join the official channel and stay tuned for news, updates and announcements.
